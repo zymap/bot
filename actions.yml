@@ -1,0 +1,17 @@
+name: 'Operate Actions CI'
+description: 'Create a release for a tag in the specified repository'
+author: 'GitHub'
+inputs:
+  repo_owner:
+    description: 'The owner of the repository.'
+    required: true
+  repo_name:
+    description: 'The name of the repository.'
+    required: true
+  rerun_cmd:
+    descirption: 'The commands string to rerun all checks.'
+    required: false
+    default: 'run failure checks'
+runs:
+  using: 'node13.11.0'
+  main: 'dist/index.js'

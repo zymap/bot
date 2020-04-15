@@ -1,0 +1,22 @@
+name: Run bot check
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Bot actions
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+        uses: ./
+        with:
+          repo_owner: zymap
+          repo_name: bot
