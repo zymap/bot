@@ -1,6 +1,6 @@
 name: 'Operate Actions CI'
-description: 'Create a release for a tag in the specified repository'
-author: 'GitHub'
+description: 'Operate Actions CI'
+author: 'yong'
 inputs:
   repo_owner:
     description: 'The owner of the repository.'
