@@ -2057,12 +2057,12 @@ module.exports = {"_from":"@octokit/rest@^16.43.1","_id":"@octokit/rest@16.43.1"
 /***/ (function(module, __unusedexports, __webpack_require__) {
 
 const core = __webpack_require__(470);
-const { Github, context } = __webpack_require__(469);
+const { GitHub, context } = __webpack_require__(469);
 
 async function run() {
 
     try {
-        const github = new Github(process.env.GITHUB_TOKEN);
+        const github = new GitHub(process.env.GITHUB_TOKEN);
         const reRunCmd = core.getInput('rerun_cmd', { required: false});
         const owner = core.getInput('repo_owner', {required: true});
         const repo = core.getInput('repo_name', {required: true});
