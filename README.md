@@ -36,7 +36,7 @@ jobs:
       - name: Bot actions
         uses: zymap/bot@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # replace here to your token
         with:
           repo_owner: zymap  # replace here to your repo owner
           repo_name: bot     # replace here to your repo name
