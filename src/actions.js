@@ -8,11 +8,14 @@ async function run() {
         const reRunCmd = core.getInput('rerun_cmd', { required: false});
         const owner = core.getInput('repo_owner', {required: true});
         const repo = core.getInput('repo_name', {required: true});
+        console.log("Starting retrigger");
+        console.log(context.issue.number);
         const comment = await github.issues.getComment({
             owner,
             repo,
             comment_id: context.issue.number
         });
+        console.log(comment);
         if (comment.data.body !== reRunCmd) {
             console.log("this is not a bot command");
             return;
