@@ -9,9 +9,12 @@ inputs:
     description: 'The name of the repository.'
     required: true
   rerun_cmd:
-    description: 'The commands string to rerun all checks.'
+    description: 'The commands string to rerun all failure checks.'
     required: false
     default: 'run failure checks'
+  comments:
+    description: 'The comments string of the PR.'
+    required: true
 runs:
   using: 'node12'
   main: 'dist/index.js'

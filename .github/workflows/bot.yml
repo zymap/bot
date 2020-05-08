@@ -24,3 +24,4 @@ jobs:
           repo_owner: zymap
           repo_name: bot
           rerun_cmd: rerun failure checks
+          comment: ${{ github.event.comment.body }}

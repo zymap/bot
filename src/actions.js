@@ -8,23 +8,29 @@ async function run() {
         const reRunCmd = core.getInput('rerun_cmd', { required: false});
         const owner = core.getInput('repo_owner', {required: true});
         const repo = core.getInput('repo_name', {required: true});
-        console.log("Starting retrigger");
-        console.log(context.issue.number);
-        const comment = await github.issues.getComment({
-            owner,
-            repo,
-            comment_id: context.issue.number
-        });
-        console.log(comment);
-        if (comment.data.body !== reRunCmd) {
+        const comment = core.getInput('comment', {required: true});
+
+        if ( comment !== reRunCmd) {
             console.log("this is not a bot command");
             return;
         }
 
+        const {
+            data: {
+                head: {
+                    ref: prRef,
+                }
+            }
+        } = await github.pulls.get({
+            owner,
+            repo,
+            pull_number: context.issue.number,
+        });
+
         const jobs = await github.checks.listForRef({
             owner,
             repo,
-            ref: context.ref,
+            ref: prRef,
             status: "completed"
         });
 
