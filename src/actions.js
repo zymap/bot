@@ -18,7 +18,7 @@ async function run() {
         const {
             data: {
                 head: {
-                    ref: prRef,
+                    sha: prRef,
                 }
             }
         } = await github.pulls.get({
